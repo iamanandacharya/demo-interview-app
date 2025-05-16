@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://ionicframework.com/img/logos/ionic-logo-horizontal.svg" alt="Ionic Logo" width="300">
+ <ion-icon name="logo-ionic"></ion-icon>
   <h1>🚀 Ionic Project - Powering Seamless Experiences 🚀</h1>
   <p>A cutting-edge mobile application built with the power of Ionic and Angular, delivering a rich and engaging user experience across all platforms.</p>
 </div>
