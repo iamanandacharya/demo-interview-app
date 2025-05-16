@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+
+  <ion-toolbar>
+
+    <ion-item lines="none">
+      <ion-icon (click)="backPage()" name="arrow-back"></ion-icon>
+      <ion-title>
+        single-product</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card>
+    <img style="height: 100%;
+    width: 100%;" alt="Silhouette of mountains" src="{{productData.thumbnail}}" />
+    <ion-card-header>
+      <ion-card-title>{{productData.title}}- {{productData.price}}</ion-card-title>
+      <ion-card-subtitle>{{productData.brand}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{productData.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>

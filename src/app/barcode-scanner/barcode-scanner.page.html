@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>barcode-scanner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">barcode-scanner</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   <ion-button expand="full" (click)="takePhotoAndSave()">Take Picture</ion-button>
+
+  <div *ngIf="imageElement" class="image-preview">
+    <h2>Preview:</h2>
+    <img [src]="imageElement" alt="Captured Image" />
+  </div>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+     <ion-item lines="none">
+      <ion-icon (click)="backPage()" name="arrow-back"></ion-icon>
+      <ion-title>prod list</ion-title>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2>Product List</h2>
+    <div *ngIf="loading$ | async">Loading...</div>
+    <div *ngIf="error$ | async">Error: {{ error$ | async }}</div>
+
+    <h3>Add New Product</h3>
+    <form [formGroup]="addProductForm" (ngSubmit)="createProduct()">
+      <input type="text" placeholder="Name" formControlName="name">
+      <input type="number" placeholder="Price" formControlName="price">
+      <input type="text" placeholder="Image URL" formControlName="imageUrl">
+      <button type="submit" >Add Product</button>
+    </form>
+
+    <h3>Products</h3>
+    <ul>
+      <li *ngFor="let product of products$ | async">
+        {{ product.name }} - ${{ product.price }}
+        <button (click)="selectProduct(product.id)">Edit</button>
+        <button (click)="deleteProduct(product.id)">Delete</button>
+      </li>
+    </ul>
+
+    <div *ngIf="selectedProduct$ | async as selectedProduct">
+      <h3>Edit Product</h3>
+      <form [formGroup]="editProductForm" (ngSubmit)="updateProduct(selectedProduct.id)">
+        <input type="text" placeholder="Name" formControlName="name">
+        <input type="number" placeholder="Price" formControlName="price">
+        <input type="text" placeholder="Image URL" formControlName="imageUrl">
+        <button type="submit" [disabled]="editProductForm.invalid || (loading$ | async)">Update Product</button>
+        <button (click)="clearSelectedProduct()">Cancel</button>
+      </form>
+    </div>
+
+    <button (click)="loadProducts()">Load Products</button>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-icon (click)="backPage()" name="arrow-back"></ion-icon>
+      <ion-title>posts</ion-title>
+        <ion-button slot="end" (click)="gotoProdList()">goto prod list creation</ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list *ngFor="let item of items; let i =index">
+   
+    <ion-item>
+      <!-- <ion-avatar slot="start">
+        <img [src]="[item.thumbnail]" alt="avatar" />
+      </ion-avatar> -->
+      <ion-label>{{ item.title }}</ion-label>
+      <ion-label slot="end">{{ item.price }}</ion-label>
+
+    </ion-item>
+  
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content loadingText="Please wait..." loadingSpinner="bubbles"></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+
+</ion-content>
