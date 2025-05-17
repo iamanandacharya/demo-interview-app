@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'barcode-scanner',
     loadChildren: () => import('./barcode-scanner/barcode-scanner.module').then( m => m.BarcodeScannerPageModule)
+  },
+  {
+    path: 'product-display',
+    loadChildren: () => import('./product-display/product-display.module').then( m => m.ProductDisplayPageModule)
   }
 ];
 @NgModule({

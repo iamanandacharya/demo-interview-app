@@ -1,0 +1,26 @@
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+
+  h3 {
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  p {
+    margin: 0 10px 0 0;
+  }
+
+  ion-button {
+    --padding-start: 10px;
+    --padding-end: 10px;
+  }
+
+  &.selected {
+    background-color: #f8f8f8;
+  }
+}

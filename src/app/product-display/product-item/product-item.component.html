@@ -1,0 +1,10 @@
+<div class="product-item" [class.selected]="isSelected" (click)="onSelect()">
+  <h3>{{ product.name }}</h3>
+  <p>Price: ${{ product.price }}</p>
+  <ion-button (click)="addToCartClicked($event)">Add to Cart</ion-button>
+</div>
+<!-- <div class="product-item" [class.selected]="isPostSelected" (click)="onPostSelect()">
+  <h3>{{ posts.name }}</h3>
+  <p>Price: ${{ posts.title }}</p>
+  <ion-button (click)="addToPostCartClicked($event)">Add to Cart</ion-button>
+</div> -->

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>product-display</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Available Products</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <app-product-item
+        [product]="selectedProduct === product ? selectedProduct : product"
+        (addToCart)="handleAddToCart($event)"
+        (selectProduct)="selectProductDetails($event)"
+        [isSelected]="selectedProduct === product"
+      ></app-product-item>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="selectedProduct" class="product-details">
+    <h2>Product Details</h2>
+    <p><strong>Name:</strong> {{ selectedProduct.name }}</p>
+    <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+    <p><strong>Price:</strong> ${{ selectedProduct.price }}</p>
+  </div>
+
+
+
+    <!-- <ion-list>
+    <ion-item *ngFor="let post of posts">
+      <app-product-item
+        [posts]="selectedPosts === post ? selectedPosts : post"
+        (addPostToCart)="handliAddtoPost($event)"
+        (selectPostProduct)="selectPostDetails($event)"
+        [isPostSelected]="selectedPosts === post"
+      ></app-product-item>
+    </ion-item>
+  </ion-list> -->
+
+  <!-- <div *ngIf="selectedPosts" class="product-details">
+    <h2>Product Details</h2>
+    <p><strong>Name:</strong> {{ selectedPosts.name }}</p>
+    <p><strong>Description:</strong> {{ selectedPosts.description }}</p>
+    <p><strong>Price:</strong> ${{ selectedPosts.title }}</p>
+  </div> -->
+</ion-content>
+</ion-content>

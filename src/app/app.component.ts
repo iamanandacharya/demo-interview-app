@@ -23,6 +23,11 @@ export class AppComponent implements OnInit{
       title: 'Barcode',
       url: '/barcode-scanner',
       icon: 'camera',
+    },
+    {
+      title: 'product-display',
+      url: '/product-display',
+      icon: 'camera',
     }
   ];
   public selectedIndex = 0;

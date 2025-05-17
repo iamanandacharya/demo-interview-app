@@ -15,7 +15,7 @@ import { FormControl } from '@angular/forms';
 import { ProductService } from '../providers/product.service';
 import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 import { AuthService } from '../providers/auth-service.service';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { NetworkService } from '../providers/network.service';
 
@@ -32,6 +32,8 @@ export class DashboardPage implements OnInit {
   batchSize = 15;
   currentIndex = 0;
   private productSub: Subscription | undefined;
+  platformIs: String = '';
+
   // items: any[] = [];
   constructor(
     private productService: ProductService,
@@ -39,7 +41,9 @@ export class DashboardPage implements OnInit {
     private authService: AuthService,
     private route: Router,
     private navCtrl: NavController,
-    private networkService: NetworkService
+    private networkService: NetworkService,
+    private platform: Platform,
+
   ) {
 
   }
@@ -61,7 +65,17 @@ export class DashboardPage implements OnInit {
     this.networkService.getNetworkStatus().then((data) => {
      console.log(data) 
     })
-    
+      this.platform.ready().then(() => {
+      
+      if (this.platform.is('ios')) {
+        this.platformIs = 'ios';
+      }
+      else if (this.platform.is('android')) {
+        this.platformIs = 'android';
+      } else {
+        this.platformIs = 'web';
+      }
+    });
   }
     ionViewDidEnter() {
        this.generateItems();
